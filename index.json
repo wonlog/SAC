@@ -25,9 +25,25 @@
  "height": {
  "type": "integer",
  "default": 420
- }
  },
- "methods":{},
+ "seriesType": {
+ "type": "string",
+ "default": "line",
+ "description": "Series type"
+}
+ },
+ "methods":{
+      "setSeriesType": {
+      "description": "Set series type",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Series type"
+        }
+      ]
+    }
+ },
  "events":{},
  "dataBindings": {
   "dataBinding": {
