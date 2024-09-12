@@ -20,6 +20,27 @@
    if (!dataBinding || dataBinding.state !== 'success') {
     return
    }
+
+   await getScriptPromisify('https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js')
+
+   const { data, metadata } = dataBinding
+   const { dimensions, measures } = parseMetadata(metadata)
+
+   // dimensions
+   const categoryData = []
+
+   // measures
+   const series = measures.map(measure => {
+    return {
+     id: measure.label,
+     data: [],
+     key: measure.key,
+     type: 'line',
+     smooth: true
+    }
+   }
+    )
+   
    this._root.textContent = JSON.stringify(dataBinding)
   }
  }
