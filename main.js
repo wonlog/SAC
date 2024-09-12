@@ -14,6 +14,14 @@
  this._shadowRoot.appendChild(template.content.cloneNode(true))
  this._root = this._shadowRoot.getElementById('root')
  }
+
+  async render () {
+   const dataBinding = this.dataBinding
+   if (!dataBinding || dataBinding.state !== 'success') {
+    return
+   }
+   this._root.textContent = JSON.stringify(dataBinding)
+  }
  }
  customElements.define('com-sap-sac-exercise-gw-main', Main)
  })()
