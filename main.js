@@ -76,7 +76,7 @@ var parseMetadata = metadata => {
      id: measure.label,
      data: [],
      key: measure.key,
-     type: 'line', // line, bar 코드를 바꿔도 되지만, index.json 파일에서 속서에 해당하는 부분에 Series Type에 대한 선언을 한다. 
+     type: this.seriesType || 'line', // line, bar 코드를 바꿔도 되지만, index.json 파일에서 속서에 해당하는 부분에 Series Type에 대한 선언을 한다. 
      smooth: true
     }
    })
