@@ -47,9 +47,15 @@ var parseMetadata = metadata => {
     }
 
       onCustomWidgetDestroy () {
+      if (this._eChart && echarts) { echarts.dispose(this._eChart) }
+    }
 
-  }
-
+    setSeriesType (seriesType) {
+      this.seriesType = seriesType
+      this.dispatchEvent(new CustomEvent('propertiesChanged', { detail: { properties: { seriesType } } }))
+      this.render()
+    }
+  
   async render () {
    const dataBinding = this.dataBinding
    if (!dataBinding || dataBinding.state !== 'success') {
